@@ -10,9 +10,5 @@
         <module name="Practice2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Practice2" target="18" />
-      <module name="RKSP" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>

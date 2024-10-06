@@ -1,0 +1,8 @@
+spring:
+  application:
+    name=Practice4
+  rsocket:
+    server:
+      port: 7000
+      transport: tcp
+
