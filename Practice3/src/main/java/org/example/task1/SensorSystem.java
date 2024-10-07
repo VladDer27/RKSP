@@ -14,17 +14,16 @@ public class SensorSystem {
     private static final int CO2_NORMAL = 70;
 
     public static void main(String[] args) throws InterruptedException {
-        // Создание датчика температуры
+
         Observable<Integer> temperatureSensor = Observable.interval(1, TimeUnit.SECONDS)
                 .map(tick -> new Random().nextInt(16) + 15)  // Генерация случайной температуры от 15 до 30
                 .subscribeOn(Schedulers.io());
 
-        // Создание датчика CO2
         Observable<Integer> co2Sensor = Observable.interval(1, TimeUnit.SECONDS)
                 .map(tick -> new Random().nextInt(71) + 30)  // Генерация случайного CO2 от 30 до 100
                 .subscribeOn(Schedulers.io());
 
-        // Создание сигнализации
+
         Observable.combineLatest(temperatureSensor, co2Sensor, (temperature, co2) -> {
             // Собираем данные от датчиков
             return new SensorData(temperature, co2);
